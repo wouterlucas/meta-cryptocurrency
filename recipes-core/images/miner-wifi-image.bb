@@ -1,4 +1,4 @@
-DESCRIPTION = "Miner image for rpi"
+DESCRIPTION = "Miner WiFi image for rpi"
 LICENSE = "MIT"
 
 include recipes-core/images/core-image-minimal.bb
@@ -12,4 +12,7 @@ IMAGE_FEATURES += "package-management \
 
 IMAGE_INSTALL += "kernel-modules \
                   packagegroup-miners \
+                  wpa-supplicant \
 "
+
+DISTRO_FEATURES += "wifi"
