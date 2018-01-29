@@ -10,7 +10,7 @@ PV = "1.0+gitr${SRCPV}"
 
 S = "${WORKDIR}/git"
 
-inherit autotools
+inherit autotools pkgconfig
 
 PACKAGECONFIG ?= "curl crypto"
 
