@@ -1,7 +1,11 @@
 meta-cryptocurrency
 ==============
 
-This is a Yocto/OpenEmbedded meta-layer for cryptocurrency related packages. Such as cgminer, cpuminer and more! This creates an all in one crypto Yocto distro for any dvice.
+This is a Yocto/OpenEmbedded meta-layer for cryptocurrency related packages. Such as cgminer, cpuminer and more! This creates an all in one crypto Yocto distro for any device.
+
+Support for Raspberry PIs, including WiFi support on RPI0 and RPI3. 
+
+Dubbed as hodlOS, with plans to release a mini-distro and expose the packages using apt-get through a CDN. With original reference to the legendary cryto term [HODL](https://bitcointalk.org/index.php?topic=375643.0). Happy mining & HODL'ing!
 
 #### Table of contents
 
@@ -18,13 +22,16 @@ Miners
 #### Currently supported
  * ✓ __cgminer__ (AntMiner, Avalon, ...) [cgminer](https://github.com/ckolivas/cgminer)
  * ✓ __cgminer-gekko:__ For the GekkoScience Compac and 2Pac sticks [Gekko fork](https://github.com/vthoang/cgminer.git)
+ * ✓ __cgminer-gridseed:__ For the GridSeed mining ports [GridSeed fork](https://github.com/dmaxl/cgminer)
  * ✓ __cpuminer-multi:__ CPU related mining for various algo's [github](https://github.com/tpruvot/cpuminer-multi)
+ * ✓ __xmr-stak:__ CPU/GPU CryptoNote miner for Monero and Eon [github](https://github.com/fireice-uk/xmr-stak-cpu)
+
+*Note* All built-in cgminer options are prebuild in this image. E.g. Avalon7 is available as cgminer-avalon7, Bitfury as cgminer-bitfury, etc.
 
 #### Planned support for
  * ethminer
  * hodlminer
  * ccminer
- * CryptoNote miner
 
 
 Wallets
@@ -73,12 +80,12 @@ Edit `conf/local.conf` and set the target machine:
 
 Build the image with
 ```
-bitbake miner-image
+bitbake hodl-image
 ```
 
 Or if you're looking to build a wifi image (e.g. RPI3/RPI0 w/ WIFI):
 ```
-bitbake miner-wifi-image
+bitbake hodl-wifi-image
 ```
 
 *Note* you can set SSID = <ssid> and PSK = <psd> in your `conf\local.conf`
