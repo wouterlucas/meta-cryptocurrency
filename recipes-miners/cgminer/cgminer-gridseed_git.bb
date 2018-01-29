@@ -8,10 +8,10 @@ PV = "4.3.2+gitr${SRCPV}"
 
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 
-PACKAGECONFIG_append = " gridseed"
+PACKAGECONFIG_append 		= " gridseed"
 PACKAGECONFIG[gridseed]  	= "--enable-scrypt --enable-gridseed,,"
 
-# rename to gekko specific cgminer binary, so we can co-exist multiple versions
+# rename to cgminer_packagename, so we can co-exist multiple versions
 do_install_append() {
-	mv ${D}${bindir}/cgminer ${D}${bindir}/cgminer_gridseed
+	mv ${D}${bindir}/cgminer ${D}${bindir}/${PN}
 }

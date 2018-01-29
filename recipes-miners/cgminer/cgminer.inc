@@ -2,13 +2,13 @@ SUMMARY = "This is a multi-threaded multi-pool FPGA and ASIC miner for bitcoin."
 LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 
-DEPENDS = "ncurses curl libusb"
+DEPENDS = "ncurses curl libusb jansson"
 
 S = "${WORKDIR}/git"
 
 inherit autotools pkgconfig
 
-PACKAGECONFIG ?= ""
+PACKAGECONFIG ?= "jansson"
 
 PACKAGECONFIG[ants1]  		= "--enable-ants1,,"
 PACKAGECONFIG[ants2]  		= "--enable-ants2,,"
@@ -22,7 +22,7 @@ PACKAGECONFIG[bitforce]  	= "--enable-bitforce,,"
 PACKAGECONFIG[bitfury]  	= "--enable-bitfury,,"
 PACKAGECONFIG[bitmine_A1]  	= "--enable-bitmine_A1,,"
 PACKAGECONFIG[blockerupter] = "--enable-blockerupter,,"
-PACKAGECONFIG[blockerupter] = "--enable-cointerra,,"
+PACKAGECONFIG[cointerra] 	= "--enable-cointerra,,"
 PACKAGECONFIG[drillbit]  	= "--enable-drillbit,,"
 PACKAGECONFIG[hashfast]  	= "--enable-hashfast,,"
 PACKAGECONFIG[icarus]  		= "--enable-icarus,,"
@@ -39,4 +39,6 @@ PACKAGECONFIG[jansson]  	= "--with-system-jansson,,"
 do_install_append() {
     install -d ${D}${bindir}
 }
+
+INSANE_SKIP += "build-deps"
 
