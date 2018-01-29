@@ -8,6 +8,5 @@ PACKAGES = "\
 "
 
 RDEPENDS_packagegroup-miners = "\
-    cgminer-gekko \
     cpuminer-multi \
 "
